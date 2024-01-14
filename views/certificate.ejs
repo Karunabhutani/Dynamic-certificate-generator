@@ -1,0 +1,75 @@
+ <!-- views/certificate.ejs -->
+
+ <html>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Certificate</title>
+      <style>
+          body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: transparent;
+          }
+        
+          .certificate-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Center vertically */
+            width: 100%; /* Make the certificate full width */
+            height: 100vh; /* Increase the height to 80% of the viewport height */
+            background: url('https://i.pinimg.com/236x/2d/95/7b/2d957b8b4cbc10a7bec3969ecc629693.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: #333;
+          }
+        
+          .certificate h1 {
+            margin-bottom: 20px;
+          }
+        
+          .certificate-info {
+            margin-bottom: 20px;
+          }
+        
+          .certificate-info p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #333;
+          }
+        
+          .certificate-info span {
+            font-size: 20px;
+            font-weight: bold;
+          }
+        
+          .certificate-footer {
+            color: #333;
+          }
+        </style>
+  </head>
+  <body>
+      <div class="certificate-container">
+          <h1>Certificate of Donation</h1>
+          <div class="certificate-info">
+              <p>This certificate is awarded to:</p>
+              <p><span><%= name %></span></p>
+              <p>For their outstanding contribution to the new tree plantation.</p>
+              <p><span>Donation Amount:</span> $<%= amount.toLocaleString() %></p>
+              <p><span>Number of Trees:</span> <%= number_of_trees %></p>
+          </div>
+          <div class="certificate-footer">
+              <p>Thank you for your commitment to environmental sustainability!</p>
+              <p>Sincerely,</p>
+              <p>Karuna Farm</p>
+          </div>
+      </div>
+  </body>
+  </html>

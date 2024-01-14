@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate Generator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    form {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    label {
+      background-color: #007bff;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+
+    label:hover {
+      background-color: #0056b3;
+    }
+
+    button {
+      background-color: #28a745;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    #uploadStatus {
+      margin-top: 20px;
+      display: none;
+      color: #007bff;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data" onsubmit="showUploadStatus()">
+    <h1 id="uploadHeading">Certificate Generator</h1>
+    <label for="excelFile">Choose File</label>
+    <input type="file" id="excelFile" name="excelFile" accept=".xls, .xlsx" onchange="updateLabel()">
+    <button type="submit" id="uploadButton">Generate Certificates</button>
+    <div id="uploadStatus">No file chosen</div>
+  </form>
+
+  <script>
+    function updateLabel() {
+      const fileInput = document.getElementById('excelFile');
+      const label = document.querySelector('label[for="excelFile"]');
+      if (fileInput.files.length > 0) {
+        label.textContent = `File selected: ${fileInput.files[0].name}`;
+      } else {
+        label.textContent = 'Choose File';
+      }
+    }
+
+    
+  </script>
+</body>
+</html>
